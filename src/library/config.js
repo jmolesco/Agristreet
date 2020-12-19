@@ -25,5 +25,7 @@ module.exports = {
   VALID_TIME_FORMAT: 'HH:mm', // refer to momentjs format, use to validate request
   DEBUG: JSON.parse(DEBUG),
   DEBUG_VERBOSE: true && JSON.parse(DEBUG),
-  MAXLENGTH_TEXT:128
+  MAXLENGTH_TEXT:128,
+  MAXCREDENTIAL_TEXT:12,
+  MINCREDENTIAL_TEXT:8
 };
