@@ -1,15 +1,24 @@
 const { buildSchema } = require('graphql');
-const AdminLogIn = require('../AdminLogIn');
+const Category = require('../category');
 
 
 const schema = `
-${AdminLogIn.Schema.Types}
+${Category.Schema.Types}
 
+input FilterStatus{
+    status:Int           
+}
+input SearchKeyword{
+    keyword:String           
+}
+input OrderBy{
+    orderKey:Int
+    orderType:Int
+}
 input Pager {
     page: Int!
     maxRecord: Int
 }
-
 type PageInfo {
     totalRecords: Int!
     totalPage: Int!
@@ -18,12 +27,12 @@ type PageInfo {
 }
 
 type RootQuery {
-${AdminLogIn.Schema.RootQuery}    
+${Category.Schema.RootQuery} 
 
 }
 
 type RootMutation {
-${AdminLogIn.Schema.RootMutation}   
+${Category.Schema.RootMutation}    
 
 }
 

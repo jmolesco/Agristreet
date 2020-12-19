@@ -69,12 +69,12 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(cors(corsOptions));
 }
 
-const extensions = (async (requestInfo) => {
-  if (typeof requestInfo.result.errors !== 'undefined') {
-    const repo = repository();
-    await repo.ErrorLogsRepository.LogErrors(requestInfo);
-  }
-});
+// const extensions = (async (requestInfo) => {
+//   if (typeof requestInfo.result.errors !== 'undefined') {
+//     const repo = repository();
+//     await repo.ErrorLogsRepository.LogErrors(requestInfo);
+//   }
+// });
 
 // TODO: enable on phase 2 for security of requests
 // app.use(auth.setAppKeyFlag);
@@ -92,7 +92,7 @@ app.use('/graphql', graphqlHttp({
   rootValue: graphqlResolver,
   graphiql: config.DEBUG,
   customFormatErrorFn: grahpqlErrorFormatter,
-  extensions,
+  //extensions, // for error log
 }));
 
 /*

@@ -61,4 +61,7 @@ module.exports = {
   noJpSpecialChars: value => (!commonValidator
     .noJpSpecialChars(value)
     ? { ...messages.E0000042 } : undefined),
+  leadingAndTrailing: value => (commonValidator
+    .hasLeadingAndTrailing(value)
+    ? { ...messages.LMS00001 } : undefined),
 };

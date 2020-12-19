@@ -105,7 +105,9 @@ function noJpSpecialChars(value) {
   const re = /[＀ ！＂＃＄％＆＇（）＊＋，－．：；＜＝＞？＾／]/gm;
   return !re.test(value);
 }
-
+function hasLeadingAndTrailing(value) {
+  return value.startsWith(' ') || value.endsWith(' ');
+}
 module.exports = {
   isStringHasValue,
   isStringValidDate,
@@ -126,4 +128,5 @@ module.exports = {
   isValidHalfOrFullKatakana,
   noENSpecialChars,
   noJpSpecialChars,
+  hasLeadingAndTrailing,
 };
