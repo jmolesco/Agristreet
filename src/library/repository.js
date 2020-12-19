@@ -2,14 +2,12 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 
-const _AdminLogIn = require('./DB/AdminLogIn/repository');
-
+const _category = require('./DB/category/repository');
 function Repository(connection, _lang) {
-  const AdminLogIn = _AdminLogIn(connection);
-
+  const categoryRepository = _category(connection);
 
   return {
-    AdminLogIn,
+    categoryRepository,
   };
 }
 

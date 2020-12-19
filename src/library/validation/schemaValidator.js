@@ -80,6 +80,9 @@ module.exports = schema => (values) => {
             case types.NOJPSPECIALCHARS:
               errors.addFieldError(field, checker.noJpSpecialChars(values[field], vVal[vKey]));
               break;
+            case types.LEADINGANDTRAILINGSPACES:
+              errors.addFieldError(field, checker.leadingAndTrailing(values[field], vVal[vKey]));
+              break;
             default:
               break;
           }

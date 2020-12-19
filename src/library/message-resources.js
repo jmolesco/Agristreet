@@ -73,4 +73,23 @@ module.exports = {
   P0006: { errorCode: 'P0006', errorMessage: 'Staff does not exist.' },
   P0007: { errorCode: 'P0007', errorMessage: 'Invalid Account.' },
   P0008: { errorCode: 'P0008', errorMessage: 'Insufficient points balance.' },
+
+  /******
+   * 
+   * START OF AGRISTREET
+   * 12/19/2020
+   * 
+   */
+
+
+  LMS00001: { errorCode: 'LMS00001', errorMessage: 'Leading and Trailing Spaces' },
+  LMS00002: { errorCode: 'LMS00002', errorMessage: 'Record already exist.' },
+  LMS00003: { errorCode: 'LMS00003', errorMessage: 'Confirm Password should be the same with Password' },
+  LMS00004: { errorCode: 'LMS00004', errorMessage: 'Username already exist.' },
+  LMS00005: { errorCode: 'LMS00005', errorMessage: 'Email Address already exist.' },
+  LMS00006: { errorCode: 'LMS00006', errorMessage: 'Username or Password is incorrect. Try again!' },
+  LMS00007: { errorCode: 'LMS00007', errorMessage: 'Invalid video format. Only allows mp4, webm & ogg' },
+
 };
+
+

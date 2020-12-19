@@ -23,6 +23,7 @@ const CheckAge = validAge => FieldCheck(CheckType.AGE, { validAge });
 const CheckFullORHalfKatakana = () => FieldCheck(CheckType.FULLORHALFKATAKANA);
 const CheckNoJpSpecialChars = () => FieldCheck(CheckType.NOJPSPECIALCHARS);
 const CheckNoEnSpecialChars = () => FieldCheck(CheckType.NOENSPECIALCHARS);
+const CheckLeadingAndTrailingSpaces = () => FieldCheck(CheckType.LEADINGANDTRAILINGSPACES);
 
 module.exports = {
   SchemaValidator,
@@ -45,4 +46,5 @@ module.exports = {
   CheckFullORHalfKatakana,
   CheckNoJpSpecialChars,
   CheckNoEnSpecialChars,
+  CheckLeadingAndTrailingSpaces,
 };

@@ -1,7 +1,7 @@
 
-const AdminLogIn = require('../AdminLogIn');
+const Category = require('../category');
 
 module.exports = {
-  ...AdminLogIn.Resolvers,
-  ...AdminLogIn.Mutations,
+  ...Category.Resolvers,
+  ...Category.Mutations,
 };
