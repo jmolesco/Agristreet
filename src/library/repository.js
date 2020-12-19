@@ -4,13 +4,26 @@
 
 const _category = require('./DB/category/repository');
 const _account = require('./DB/account/repository');
+const _farmer = require('./DB/farmer/repository');
+
+const helpers = require('./helpers');
+
 function Repository(connection, _lang) {
   const categoryRepository = _category(connection);
   const accountRepository = _account(connection);
+  const farmerRepository = _farmer(connection);
+
+  const MapGetDataList = data => ({
+    ...data,
+    intime: helpers.formatDateTimeToStringPH(data.intime),
+    uptime: data.uptime ? helpers.formatDateTimeToStringPH(data.uptime) : 'null',
+  });
 
   return {
     categoryRepository,
     accountRepository,
+    farmerRepository,
+    MapGetDataList
   };
 }
 

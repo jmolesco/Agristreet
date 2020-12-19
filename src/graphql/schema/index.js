@@ -1,10 +1,12 @@
 const { buildSchema } = require('graphql');
 const Category = require('../category');
 const Account = require('../account');
+const Farmer = require('../farmer');
 
 const schema = `
 ${Category.Schema.Types}
 ${Account.Schema.Types}
+${Farmer.Schema.Types}
 
 input FilterStatus{
     status:Int           
@@ -30,13 +32,14 @@ type PageInfo {
 type RootQuery {
 ${Category.Schema.RootQuery} 
 ${Account.Schema.RootQuery} 
+${Farmer.Schema.RootQuery} 
 
 }
 
 type RootMutation {
 ${Category.Schema.RootMutation}  
 ${Account.Schema.RootMutation}    
-
+${Farmer.Schema.RootMutation}    
 }
 
 scalar Upload
