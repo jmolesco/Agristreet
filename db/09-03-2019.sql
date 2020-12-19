@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `downloadClickAt` DATETIME NULL AFTER `last_cinema_attendance`;

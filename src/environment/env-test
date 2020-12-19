@@ -1,0 +1,17 @@
+NODE_ENV=development
+DB_HOST=dbtest.blotocol.local
+DB_USER=poitore
+DB_PASSWORD=poitoretest
+DB_NAME=poitore_test
+DB_PORT=3306
+PORT=13001
+DEBUG=true
+ONVEX=false
+SECRET_KEY=2019superP0itoreDuperS3cr3eTkeY2019
+SENDGRID_MAIL_FROM=john.olesco@blotocol.com
+SERVERNAME=email-smtp.us-west-2.amazonaws.com
+EMAILPORT=465
+TLS=YES
+SMTP_USERNAME=AKIATOPFD5X6XNL4JROF
+SMTP_PASSWORD=BBTeCXJHFDTVli0CvWwj17qCNQA7QrDjm/XlqiI5I3So
+

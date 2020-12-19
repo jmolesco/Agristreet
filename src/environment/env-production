@@ -1,0 +1,41 @@
+NODE_ENV=production
+DB_HOST=chaneldb.clyz54wjmfzq.ap-northeast-1.rds.amazonaws.com
+DB_USER=chanelstaging
+DB_PASSWORD=n3Gv5TYyR7
+DB_NAME=chaneldb
+DB_PORT=3306
+TOKEN_EXPIRATION=1
+APP_KEY=cCch@nn3lS3cr3tKeyxXxcCc
+SECRET_KEY=MIIBOQIBAAJBAKiiwK4vcIYbknFa1+ptI50KJHjHDgOOvCnYBbmeJavArehlNea8T9yRTdDKf+2BlYaYk0uUfq0xafaWNGnepP0CAwEAAQJAcc/+KNEdqXUcXeLIzI/CNG+u89CsVZxUxAzmuELS+9njPnz2J+S07aSBDd4D9OjLM0zXdCdtwwkIH7w3vDL+hQIhANRbVbx20hkOcOSKX9bpfMfikgGKS7qtvqJ+pSekA4d3AiEAy0si4gYCtwC6D8U7jersoIS+DLj5QNxu8lz8YTJxPCsCIB7VlEFlT2RsAGBu5zOhe4jakTDAD/bvO3sEwJ5c5lZJAiAZxWiipohpkpoDrcki8IkWwD0nd7uBUXBvIQKNf8uDCQIgBvdMDhzyj/S82Y9m1JK/No9l7Sb9eLGP4cAE1cTjj3U=
+PORT=9207
+DEBUG=false
+REFERRAL_URL=https://chanel.activation-jp.com/register?ref=
+REFERRAL_URL_LINE=https://form-master.dev.tonariwa.com:4430/chanelofficial/measure_url?cpid=mp&lcd=line&type=url&_rstoken=
+REGISTER_URL=https://chanel.activation-jp.com/register
+BOOKING_DETAIL_URL=https://chanel.activation-jp.com/booking
+EVENT_DETAIL_URL=https://chanel.activation-jp.com/booking
+GOOGLE_MAP_URL=https://www.google.com/maps/place/B%26C+Hall/@35.6227257,139.74492,17z/data=!3m1!4b1!4m5!3m4!1s0x60188a69f9dba85f:0x9d4643b2e37be9ca!8m2!3d35.6227214!4d139.7471087
+CHECKIN_URL=https://howtocheckin
+PARTICIPATE_URL=https://aboutparticipating
+CANCEL_URL=https://howtocancel
+SENDGRID_API_KEY=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
+SENDGRID_MAIL_FROM=noreply-mp@chanel.co.jp
+TONARIWA_API=https://api-master.dev.tonariwa.com:4432/v1/chanelofficial
+WHITELIST_DOMAIN=https://chanel.activation-jp.com
+QUESTIONNAIRE_URL=https://questionnaire
+PUSH_NOTIF_API=https://staging-mrelay.activation-jp.com/dev/message
+REFERRAL_DAY_EXPIRATION=3
+ENABLE_TONARIWAAPI=true
+ONVEX=false
+CACHE_EXPIRATION=300000
+TONARIWA_API_KEY=chanelofficial_mademoiselle-prive_dlu1d5dkt9dx37if5s20
+TONARIWA_API_SECRET=KtdE7xceNWy_txFRtOopmrZurC8Q4zEqe0Frw6rSb7ioJKkZpCnxTZLAR690m_uF
+TONARIWA_SECURITY_TOKEN_KEY=chanelofficial_mademoiselle-prive_yeijeajui24r0p7tu9a6
+TONARIWA_SECURITY_TOKEN_SECRET=9DK9Ex9_UBC8WcmmvmhyDrSd_owJfqyY0VwXuLZ_q9m1IkkECXLVXWC9VLoudk5Y
+VENUE_EN=B&C HALL - TENNOZ
+VENUE_JP=B&C HALL - 天王洲アイル
+TONARIWA_EXPIRATION=20000
+TONARIWA_MOCK_API=http://tonariwa-mock-api.japanwest.cloudapp.azure.com/api
+DOWNLOAD_URL=https://sftp.activation-jp.com/file_download/test_file.txt
+FULL_ADDRESS=2-1-3 Higashi-Shinagawa, Shinagawa-ku, Tokyo
+FOOTER_LINK=https://staging-chanel.activation-jp.com/reminder

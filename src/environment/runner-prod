@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/chanel/chanel-api-graphql/
+node ./src/batch
