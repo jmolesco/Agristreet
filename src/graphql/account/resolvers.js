@@ -4,7 +4,4 @@ const AdminDomain = require('@AdminDomain');
 // const ClientDomain = require('@ClientDomain');
 
 module.exports = {
-  getList: AnonymousAccess(
-    AdminDomain.AdminLogIn().MapAdminList,
-  ),
 };

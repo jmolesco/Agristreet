@@ -1,9 +1,10 @@
 const { buildSchema } = require('graphql');
 const Category = require('../category');
-
+const Account = require('../account');
 
 const schema = `
 ${Category.Schema.Types}
+${Account.Schema.Types}
 
 input FilterStatus{
     status:Int           
@@ -28,11 +29,13 @@ type PageInfo {
 
 type RootQuery {
 ${Category.Schema.RootQuery} 
+${Account.Schema.RootQuery} 
 
 }
 
 type RootMutation {
-${Category.Schema.RootMutation}    
+${Category.Schema.RootMutation}  
+${Account.Schema.RootMutation}    
 
 }
 

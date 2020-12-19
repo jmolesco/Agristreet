@@ -16,6 +16,7 @@ module.exports = {
     const newCategoryUpdateStatus = await repo.categoryRepository.updateCategory({
       id: categoryUpdateInput.id,
       name: categoryUpdateInput.name,
+      description:categoryInput.description,
     });
     return newCategoryUpdateStatus;
   }),
