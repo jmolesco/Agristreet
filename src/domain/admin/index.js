@@ -12,6 +12,7 @@ const Category = require('./category');
 const Account = require('./account');
 const Farmer = require('./farmer');
 const FarmerRatingDetail = require('./farmerratingdetail');
+const Product = require('./product');
 module.exports = {
 // SAMPLE DECLARATION
 //  Rank: () => Rank,
@@ -19,4 +20,5 @@ module.exports = {
   Account                   :   ()=>          Account,
   Farmer                    :   ()=>          Farmer,
   FarmerRatingDetail        :   ()=>          FarmerRatingDetail,
+  Product                   :   ()=>          Product,
 };
