@@ -6,6 +6,7 @@ const _category = require('./DB/category/repository');
 const _account = require('./DB/account/repository');
 const _farmer = require('./DB/farmer/repository');
 const _farmerratingdetail = require('./DB/farmerratingdetail/repository');
+const _product = require('./DB/product/repository');
 const helpers = require('./helpers');
 
 function Repository(connection, _lang) {
@@ -13,6 +14,7 @@ function Repository(connection, _lang) {
   const accountRepository = _account(connection);
   const farmerRepository = _farmer(connection);
   const farmerratingdetailRepository = _farmerratingdetail(connection);
+  const productRepository = _product(connection);
 
   const MapGetDataList = data => ({
     ...data,
@@ -25,7 +27,8 @@ function Repository(connection, _lang) {
     accountRepository,
     farmerRepository,
     MapGetDataList,
-    farmerratingdetailRepository
+    farmerratingdetailRepository,
+    productRepository
   };
 }
 
