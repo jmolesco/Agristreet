@@ -24,7 +24,7 @@ module.exports = {
     const newfarmerUpdateStatus = await repo.farmerRepository.updateFarmer({
       id: farmerUpdateInput.id,
       imagephoto: farmerUpdateInput.imagephoto,
-      //farmerid:farmerUpdateInput.farmerid,
+      //farmerid:farmerUpdateInput.farm..erid,
       fname: farmerUpdateInput.fname,
       mname:farmerUpdateInput.mname,
       lname: farmerUpdateInput.lname,
