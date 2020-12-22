@@ -15,6 +15,9 @@ const productCriteria = () => {
     statusEqual: (status) => {
       baseCriteria.addCondition(DbHelper.criteria.EQUAL('product.status', status));
     },
+    farmerIdEqual: (farmerid) => {
+      baseCriteria.addCondition(DbHelper.criteria.EQUAL('product.farmerid', farmerid));
+    },
     keywordLike: (status) => {
       baseCriteria.addCondition(DbHelper.criteria.FULL_LIKE('product.productname', status));
     },

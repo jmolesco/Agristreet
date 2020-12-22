@@ -9,6 +9,7 @@ const CreateProductSchema = (isEdit = false) => {
     schema.id = [validation.CheckNumberValue(), validation.CheckRequired()];
   }
   schema.farmerid = [validation.CheckRequired()];
+  schema.categoryId = [validation.CheckRequired()];
   schema.measurementid = [validation.CheckRequired()];
   schema.price = [validation.CheckRequired(), validation.CheckNumberValue()];
   schema.description = [validation.CheckRequired(), validation.CheckLeadingAndTrailingSpaces(), validation.CheckNoEnSpecialChars(), validation.CheckMaxLength(config.MAXLENGTH_TEXT)];
