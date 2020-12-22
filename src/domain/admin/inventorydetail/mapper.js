@@ -1,19 +1,20 @@
 const DB = require('@Library/repository');
-const productCriteria = require('@Library/DB/product/criteria');
 const config = require('@Library/config');
 const { SortType } = require('@Library/constants');
+const inventorytrailCriteria = require('@Library/DB/inventorydetail/criteria');
 
 module.exports = {
-  MapProductList: async ({
+
+  MapInventoryList: async ({
     pager,
     filterStatus,
     searchKeyword,
     orderBy,
-    hasFarmerId
+    hasInventoryId
   }) => {
     const repository = DB();
 
-    const criteria = productCriteria();
+    const criteria = inventorytrailCriteria();
 
     if (filterStatus) {
       if (filterStatus.status === 1) {
@@ -25,9 +26,9 @@ module.exports = {
       }
     }
 
-    if(hasFarmerId){
-      if(hasFarmerId.farmerid)
-        criteria.farmerIdEqual(hasFarmerId.farmerid);
+    if(hasInventoryId){
+      if(hasInventoryId.inventoryid)
+        criteria.inventoryIdEqual(hasInventoryId.inventoryid);
     }
     if (searchKeyword) 
     {
@@ -42,11 +43,11 @@ module.exports = {
         else
           criteria.orderByID(SortType.DESC);
         
-      } else if (orderBy.orderKey === 2) {  // Product Name
+      } else if (orderBy.orderKey === 2) {  // inventorytrail Name
         if (orderBy.orderType === SortType.ASC)  // ASC
-          criteria.orderByproduct(SortType.ASC);
+          criteria.orderByinventorytrail(SortType.ASC);
         else 
-          criteria.orderByproduct(SortType.DESC);
+          criteria.orderByinventorytrail(SortType.DESC);
       } else 
         noOrderBy = true;    
     }
@@ -55,22 +56,15 @@ module.exports = {
       page: pager.page,
       maxRecord: config.DEFAULTPAGE_NUMBER,
     };
-    const productCount = await repository.productRepository.getProductListCount(criteria);
+    const inventorytrailCount = await repository.inventorytrailRepository.getInventoryTrailCount(criteria);
     criteria.setPager(page);
 
     if (noOrderBy === true) criteria.orderByIntime();
 
-    const result = await repository.productRepository.getProductList(criteria);
+    const result = await repository.inventorytrailRepository.getInventoryTrailList(criteria);
 
-    const mappedValues = result.map(repository.MapGetDataList);
+    const mappedValues = result.map(repository.MapInventoryTrailDataList);
     const list = { list: mappedValues };
-    return repository.MapListWithPager(list, productCount.length, page);
-  },
-  MapProductDetail: async ({ id }) => {
-    const repository = DB();
-    const criteria = productCriteria();
-    criteria.IdEqual(id);
-    const result = await repository.productRepository.getProductDetail(criteria);
-    return repository.MapGetDataList(result[0] || null);
+    return repository.MapListWithPager(list, inventorytrailCount.length, page);
   },
 };

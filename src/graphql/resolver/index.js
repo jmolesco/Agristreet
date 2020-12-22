@@ -4,6 +4,8 @@ const Account = require('../account');
 const Farmer = require('../farmer');
 const FarmerRatingDetail = require('../farmerratingdetail');
 const Product = require('../product');
+const Inventory = require('../inventory');
+const InventoryTrail = require('../inventorydetail');
 module.exports = {
   ...Category.Resolvers,
   ...Category.Mutations,
@@ -15,4 +17,8 @@ module.exports = {
   ...FarmerRatingDetail.Mutations,
   ...Product.Resolvers,
   ...Product.Mutations,
+  ...Inventory.Resolvers,
+  ...Inventory.Mutations,
+  ...InventoryTrail.Resolvers,
+  ...InventoryTrail.Mutations,
 };

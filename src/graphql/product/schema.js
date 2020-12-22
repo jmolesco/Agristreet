@@ -1,13 +1,16 @@
 module.exports = {
     Types: `
                     type product{
-                        id: Int!
+                        id: Int
+                        categoryId:Int
+                        categoryName:String
                         farmerid: Int
                         productname:String
                         brand: String
                         description:String   
                         price: Float
                         measurementid: Int
+                        type:String
                         intime: String  
                         uptime: String    
                         status: Int
@@ -18,6 +21,7 @@ module.exports = {
                     }
                     input productInput {
                         farmerid: Int
+                        categoryId:Int
                         productname:String
                         brand: String
                         description:String   
@@ -28,6 +32,7 @@ module.exports = {
                     input productUpdateInput {
                         id: Int!
                         farmerid: Int
+                        categoryId:Int
                         productname:String
                         brand: String
                         description:String   
@@ -38,13 +43,17 @@ module.exports = {
                         id: Int!
                         status:Int
                     }
+                    input FarmerIdInput{
+                        farmerid:Int
+                    }
         `,
-    RootQuery: `    geteProductList (   pager: Pager, 
+    RootQuery: `    getProductList (   pager: Pager, 
                                     filterStatus: FilterStatus,
                                     searchKeyword:SearchKeyword
                                     orderBy:OrderBy
+                                    hasFarmerId:FarmerIdInput
                                 ):  productList
-                   geteProductDetail   (id: Int!): product`,
+                   getProductDetail   (id: Int!): product`,
     RootMutation: `createProduct(productInput: productInput!): Boolean!
                    updateProduct(productUpdateInput: productUpdateInput!): Boolean!
                    deleteProduct(productDeleteInput: productDeleteInput!): Boolean!

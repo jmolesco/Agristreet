@@ -4,10 +4,7 @@ const AdminDomain = require('@AdminDomain');
 // const ClientDomain = require('@ClientDomain');
 
 module.exports = {
-  getProductList: AnonymousAccess(
-    AdminDomain.Product().MapProductList,
-  ),
-  getProductDetail: AnonymousAccess(
-    AdminDomain.Product().MapProductDetail,
-  ),
+    getInventoryTrailList: AnonymousAccess(
+        AdminDomain.InventoryTrail().MapInventoryList,
+    ),
 };

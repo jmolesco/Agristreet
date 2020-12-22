@@ -11,7 +11,8 @@ module.exports = {
       brand: productInput.brand,
       description:productInput.description,
       price: productInput.price,
-      measurementid:productInput.measurementid
+      measurementid:productInput.measurementid,
+      categoryId:productInput.categoryId
     });
     return newproductStatus;
   }),
@@ -24,7 +25,8 @@ module.exports = {
       brand: productUpdateInput.brand,
       description:productUpdateInput.description,
       price: productUpdateInput.price,
-      measurementid:productUpdateInput.measurementid
+      measurementid:productUpdateInput.measurementid,
+      categoryId:productUpdateInput.categoryId
     });
     return newproductUpdateStatus;
   }),

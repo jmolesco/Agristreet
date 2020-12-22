@@ -1,5 +1,6 @@
 const product = require('./product');
 const productCriteria = require('./criteria');
+const { productList } = require('./queries');
 
 function productRepository(connection) {
   const productDB = product(connection);
@@ -38,6 +39,10 @@ function productRepository(connection) {
 
     if (props.description) {
       schema.description = props.description;
+    }
+
+    if (props.categoryId) {
+      schema.categoryId = props.categoryId;
     }
 
     return schema;
@@ -90,15 +95,15 @@ function productRepository(connection) {
   };
   const getProductList = async (crit = productCriteria()) => {
     try {
-      const productData = await productDB.find(crit.getBuildCriteria());
+      const productData =  await productDB.search(productList,crit.getBuildCriteria());
       return productData;
     } catch (err) {
       throw err;
     }
   };
-  const getProductDetail = async (id) => {
+  const getProductDetail = async (crit = productCriteria()) => {
     try {
-      const productData = await productDB.findById(id, 'id');
+      const productData = await productDB.search(productList,crit.getBuildCriteria())
       return productData;
     } catch (err) {
       throw err;
@@ -106,7 +111,7 @@ function productRepository(connection) {
   };
   const getProductListCount = async (crit = productCriteria()) => {
     try {
-      const result = await productDB.getCount(crit.getBuildCriteria(), 'id');
+      const result = await productDB.search(productList,crit.getBuildCriteria());
       return result;
     } catch (err) {
       throw err;

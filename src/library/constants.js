@@ -109,6 +109,13 @@ const Gender = {
   Male: 1,
   Female: 2
 }
+
+const InventoryType = {
+  IN:1,
+  OUT:2,
+  REFUND:3
+
+}
 /** **
  * START OF POITORE DEVELOPLMENT
  *
@@ -136,4 +143,5 @@ module.exports = {
   FilterFields,
   OrderStatus,
   Gender,
+  InventoryType
 };
