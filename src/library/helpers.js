@@ -3,7 +3,7 @@ const moment = require('moment');
 const crypto = require('crypto');
 const config = require('./config');
 const messages = require('./message-resources');
-
+const fs = require('fs');
 /**
  *
  * @param {Data} payload Contains data to be embed on token
@@ -95,6 +95,18 @@ function getPropertyName(id, lang) {
   return null;
 }
 
+const fileUploadHelper=async(path, stream)=>{
+  await Promise.resolve(new Promise((resolve, reject) => stream
+    .pipe(fs.createWriteStream(path))
+    .on('error', error => reject(error))
+    .on('finish', () => {
+      stream.destroy();
+      resolve(path);
+    })));
+}
+
+
+
 module.exports = {
   createToken,
   verifyToken,
@@ -118,4 +130,5 @@ module.exports = {
   formatDateTimeInSQLToString,
   formatDateTimeToStringPH,
   formatDateTimeInMYSQLToString,
+  fileUploadHelper
 };

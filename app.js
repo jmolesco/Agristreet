@@ -12,7 +12,8 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 
-const repository = require('@Library/repository');
+const { graphqlUploadExpress } = require('graphql-upload');
+//const repository = require('@Library/repository');
 const getAPIRoutes = require('./src/api');
 const graphqlSchema = require('./src/graphql/schema');
 const graphqlResolver = require('./src/graphql/resolver');
@@ -87,13 +88,42 @@ app.get('/time', async (req, res) => {
 });
 
 
-app.use('/graphql', graphqlHttp({
-  schema: graphqlSchema,
-  rootValue: graphqlResolver,
-  graphiql: config.DEBUG,
-  customFormatErrorFn: grahpqlErrorFormatter,
-  //extensions, // for error log
-}));
+app.use('/graphql',
+  graphqlUploadExpress({
+    maxFileSize: config.MAXFILESIZE,
+    maxFiles: config.MAXFILES,
+  }),
+  graphqlHttp({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver,
+    graphiql: config.DEBUG,
+    customFormatErrorFn: grahpqlErrorFormatter,
+    //extensions, // for error log
+  }));
+
+app.use('/images/public', express.static(path.join(__dirname, './uploads/')));
+// app.use('/images/profile', express.static(path.join(__dirname, './uploads/profile/')));
+// app.use('/images/lessons', express.static(path.join(__dirname, './uploads/lessons/')));
+
+app.use('/image/uploads', auth.AnonymousAccess(
+  async (req, res) => {
+    const loc = path.resolve(__dirname, `./uploads/${req.query.filename}`);
+    fs.access(loc, fs.F_OK, (err) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.sendFile(loc);
+      }
+    });
+  },
+));
+// app.use('/graphql', graphqlHttp({
+//   schema: graphqlSchema,
+//   rootValue: graphqlResolver,
+//   graphiql: config.DEBUG,
+//   customFormatErrorFn: grahpqlErrorFormatter,
+//   //extensions, // for error log
+// }));
 
 /*
 app.use('/images/qr', auth.MemberImageAccess(

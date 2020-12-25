@@ -43,9 +43,6 @@ module.exports = {
                         id: Int!
                         status:Int
                     }
-                    input FarmerIdInput{
-                        farmerid:Int
-                    }
         `,
     RootQuery: `    getProductList (   pager: Pager, 
                                     filterStatus: FilterStatus,

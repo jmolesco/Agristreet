@@ -62,7 +62,7 @@ function farmerRepository(connection) {
   const createFarmer = async (props) => {
     const farmerData = await inputValue(props);
     const result = await farmerDB.create(farmerData);
-    return result.affectedRows > 0;
+    return result;
   };
 
   const updateFarmer = async (props) => {
