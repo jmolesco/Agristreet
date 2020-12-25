@@ -15,6 +15,7 @@ module.exports = {
                         intime: String  
                         uptime: String    
                         status: Int
+                      
                     }
                     type farmerList{
                         list:[farmer!]!
@@ -31,7 +32,8 @@ module.exports = {
                         mobile:String 
                         gender: Int
                         accountid:String
-                        forregistration:Boolean     
+                        forregistration:Boolean
+                        file:Upload     
                     }
                     
                     input farmerUpdateInput {
@@ -46,6 +48,7 @@ module.exports = {
                         mobile:String 
                         gender: Int
                         forregistration:Boolean
+                        file:Upload
                     }
                     input farmerDeleteInput {
                         id: Int! 

@@ -6,6 +6,7 @@ const FarmerRatingDetail = require('../farmerratingdetail');
 const Product = require('../product');
 const Inventory = require('../inventory');
 const InventoryTrail = require('../inventorydetail');
+const FarmerBanner = require('../farmerbanner');
 const schema = `
 ${Category.Schema.Types}
 ${Account.Schema.Types}
@@ -14,6 +15,7 @@ ${FarmerRatingDetail.Schema.Types}
 ${Product.Schema.Types}
 ${Inventory.Schema.Types}
 ${InventoryTrail.Schema.Types}
+${FarmerBanner.Schema.Types}
 input FilterStatus{
     status:Int           
 }
@@ -35,6 +37,10 @@ type PageInfo {
     totalPerPage: Int
 }
 
+input FarmerIdInput{
+    farmerid:Int
+}
+
 type RootQuery {
 ${Category.Schema.RootQuery} 
 ${Account.Schema.RootQuery} 
@@ -43,6 +49,7 @@ ${FarmerRatingDetail.Schema.RootQuery}
 ${Product.Schema.RootQuery} 
 ${Inventory.Schema.RootQuery} 
 ${InventoryTrail.Schema.RootQuery} 
+${FarmerBanner.Schema.RootQuery} 
 }
 
 type RootMutation {
@@ -53,6 +60,7 @@ ${FarmerRatingDetail.Schema.RootMutation}
 ${Product.Schema.RootMutation}   
 ${Inventory.Schema.RootMutation}   
 ${InventoryTrail.Schema.RootMutation}   
+${FarmerBanner.Schema.RootMutation}   
 }
 
 scalar Upload

@@ -6,7 +6,6 @@ const { CreateFarmerSchema, DeleteFarmerSchema } = require('./schemaValidation')
 
 module.exports = {
   ValidateCreateFarmer: async ({ farmerInput }) => {
-    debugger;
     const errors = validation.SchemaValidator(CreateFarmerSchema(false, farmerInput.forregistration))(farmerInput);
     // skip other validation when error occured on previous validation
 
