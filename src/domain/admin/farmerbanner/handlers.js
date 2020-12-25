@@ -18,7 +18,7 @@ async function fileUpload(pathName, params, fileName){
   const images = await params;
   const { createReadStream } = await images.file;
    const rootPath = path.dirname(require.main.filename);
-   const filePath = path.join(rootPath, 'uploads\\farmer\\'+pathName);
+   const filePath = path.join(rootPath, 'uploads\\farmer\\'+pathName+"\\banner\\");
 
    if (!fs.existsSync(filePath)) {
      fs.mkdirSync(filePath, {recursive: true}, err => {});

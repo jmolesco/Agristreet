@@ -7,6 +7,7 @@ const Product = require('../product');
 const Inventory = require('../inventory');
 const InventoryTrail = require('../inventorydetail');
 const FarmerBanner = require('../farmerbanner');
+const ProductImage = require('../productimage');
 module.exports = {
   ...Category.Resolvers,
   ...Category.Mutations,
@@ -24,4 +25,6 @@ module.exports = {
   ...InventoryTrail.Mutations,
   ...FarmerBanner.Resolvers,
   ...FarmerBanner.Mutations,
+  ...ProductImage.Resolvers,
+  ...ProductImage.Mutations,
 };

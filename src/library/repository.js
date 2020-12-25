@@ -10,6 +10,7 @@ const _product = require('./DB/product/repository');
 const _inventory = require('./DB/inventory/repository');
 const _inventorytrail = require('./DB/inventorydetail/repository');
 const _farmerbanner = require('./DB/farmerbanner/repository');
+const _productimage = require('./DB/productimage/repository');
 const helpers = require('./helpers');
 const { InventoryType } = require('./constants');
 
@@ -22,6 +23,7 @@ function Repository(connection, _lang) {
   const inventoryRepository = _inventory(connection);
   const inventorytrailRepository = _inventorytrail(connection);
   const farmerbannerRepository = _farmerbanner(connection);
+  const productimageRepository = _productimage(connection);
 
   const MapGetDataList = data => ({
     ...data,
@@ -57,7 +59,8 @@ function Repository(connection, _lang) {
     inventoryRepository,
     inventorytrailRepository,
     MapInventoryTrailDataList,
-    farmerbannerRepository
+    farmerbannerRepository,
+    productimageRepository
   };
 }
 
