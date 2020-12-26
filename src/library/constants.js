@@ -114,7 +114,12 @@ const InventoryType = {
   IN:1,
   OUT:2,
   REFUND:3
+}
 
+const OrdersType = {
+  Order:1,
+  Offer:2,
+  Notification:3
 }
 /** **
  * START OF POITORE DEVELOPLMENT
@@ -143,5 +148,6 @@ module.exports = {
   FilterFields,
   OrderStatus,
   Gender,
-  InventoryType
+  InventoryType,
+  OrdersType
 };
