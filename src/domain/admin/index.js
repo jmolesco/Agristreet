@@ -17,6 +17,7 @@ const Inventory = require('./inventory');
 const InventoryTrail = require('./inventorydetail');
 const FarmerBanner = require('./farmerbanner');
 const ProductImage = require('./productimage');
+const Orders = require('./orders');
 module.exports = {
 // SAMPLE DECLARATION
 //  Rank: () => Rank,
@@ -29,4 +30,5 @@ module.exports = {
   InventoryTrail            :   ()=>          InventoryTrail,
   FarmerBanner              :   ()=>          FarmerBanner,
   ProductImage              :   ()=>          ProductImage,
+  Orders                    :   ()=>          Orders,
 };

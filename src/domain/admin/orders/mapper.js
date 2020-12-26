@@ -1,10 +1,10 @@
 const DB = require('@Library/repository');
-const categoryCriteria = require('@Library/DB/category/criteria');
+const ordersCriteria = require('@Library/DB/orders/criteria');
 const config = require('@Library/config');
 const { SortType } = require('@Library/constants');
 
 module.exports = {
-  MapCategoryList: async ({
+  MapOrdersList: async ({
     pager,
     filterStatus,
     searchKeyword,
@@ -12,7 +12,7 @@ module.exports = {
   }) => {
     const repository = DB();
 
-    const criteria = categoryCriteria();
+    const criteria = ordersCriteria();
 
     if (filterStatus) {
       if (filterStatus.status === 1) {
@@ -24,6 +24,15 @@ module.exports = {
     if (searchKeyword) {
       criteria.keywordLike(searchKeyword.keyword);
     }
+
+    if(hasFarmerandCustomerId){
+      if(hasFarmerandCustomerId.farmerid)
+        criteria.farmerIdEqual(hasFarmerandCustomerId.farmerid);
+
+        if(hasFarmerandCustomerId.consumerid)
+        criteria.consumerIdEqual(hasFarmerandCustomerId.consumerid);
+    }
+
     let noOrderBy = false;
     if (orderBy) {
       if (orderBy.orderKey === 1) { // ID
@@ -34,9 +43,9 @@ module.exports = {
         }
       } else if (orderBy.orderKey === 2) {
         if (orderBy.orderType === SortType.ASC) { // ASC
-          criteria.orderByCategory(SortType.ASC);
+          criteria.orderByorders(SortType.ASC);
         } else {
-          criteria.orderByCategory(SortType.DESC);
+          criteria.orderByorders(SortType.DESC);
         }
       } else {
         noOrderBy = true;
@@ -47,19 +56,19 @@ module.exports = {
       page: pager.page,
       maxRecord: config.DEFAULTPAGE_NUMBER,
     };
-    const CategoryCount = await repository.categoryRepository.getCategoryListCount(criteria);
+    const ordersCount = await repository.ordersRepository.getOrdersListCount(criteria);
     criteria.setPager(page);
     if (noOrderBy === true) criteria.orderByIntime();
 
-    const result = await repository.categoryRepository.getCategoryList(criteria);
+    const result = await repository.ordersRepository.getOrdersList(criteria);
 
     const mappedValues = result.map(repository.MapGetDataList);
     const list = { list: mappedValues };
-    return repository.MapListWithPager(list, CategoryCount, page);
+    return repository.MapListWithPager(list, ordersCount, page);
   },
-  MapCategoryDetail: async ({ id }) => {
+  MapOrdersDetail: async ({ id }) => {
     const repository = DB();
-    const result = await repository.categoryRepository.getCategoryDetail(id);
+    const result = await repository.ordersRepository.getOrdersDetail(id);
     return repository.MapGetDataList(result);
   },
 };

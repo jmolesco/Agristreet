@@ -11,6 +11,7 @@ const _inventory = require('./DB/inventory/repository');
 const _inventorytrail = require('./DB/inventorydetail/repository');
 const _farmerbanner = require('./DB/farmerbanner/repository');
 const _productimage = require('./DB/productimage/repository');
+const _orders = require('./DB/orders/repository');
 const helpers = require('./helpers');
 const { InventoryType } = require('./constants');
 
@@ -24,7 +25,8 @@ function Repository(connection, _lang) {
   const inventorytrailRepository = _inventorytrail(connection);
   const farmerbannerRepository = _farmerbanner(connection);
   const productimageRepository = _productimage(connection);
-
+  const ordersRepository = _orders(connection);
+  
   const MapGetDataList = data => ({
     ...data,
     intime: helpers.formatDateTimeToStringPH(data.intime),
@@ -60,7 +62,8 @@ function Repository(connection, _lang) {
     inventorytrailRepository,
     MapInventoryTrailDataList,
     farmerbannerRepository,
-    productimageRepository
+    productimageRepository,
+    ordersRepository
   };
 }
 
